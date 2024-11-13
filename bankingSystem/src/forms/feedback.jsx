@@ -1,7 +1,7 @@
 // src/components/FeedbackForm.jsx
 import React, { useState } from 'react';
 
-const FeedbackForm = () => {
+const Feedback = () => {
     const [feedback, setFeedback] = useState({
         name: '',
         email: '',
@@ -111,4 +111,4 @@ const FeedbackForm = () => {
     );
 };
 
-export default FeedbackForm;
+export default Feedback;

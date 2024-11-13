@@ -1,7 +1,7 @@
 // src/components/CustomerForm.jsx
 import React, { useState } from 'react';
 
-const CustomerForm = () => {
+const Customer = () => {
     const [customer, setCustomer] = useState({
         name: '',
         address: '',
@@ -223,4 +223,4 @@ const CustomerForm = () => {
     );
 };
 
-export default CustomerForm;
+export default Customer;

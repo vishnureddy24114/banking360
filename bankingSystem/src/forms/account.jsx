@@ -1,12 +1,18 @@
 // src/components/AccountForm.js
 import React, { useState } from 'react';
 
-const AccountForm = () => {
+const Account = () => {
     const [account, setAccount] = useState({
+        accountID: '',
+        customerID: '',
         accountType: 'Savings',
         balance: '',
         openDate: '',
+        status: 'Active',
+        interestRate: '',
+        branchID: '',
         currency: 'USD',
+        overdraftLimit: '',
     });
 
     const [errors, setErrors] = useState({});
@@ -22,6 +28,7 @@ const AccountForm = () => {
         const newErrors = {};
         if (!account.balance || account.balance <= 0) newErrors.balance = 'Balance must be a positive number';
         if (!account.openDate) newErrors.openDate = 'Open Date is required';
+        if (!account.interestRate || account.interestRate <= 0) newErrors.interestRate = 'Interest Rate must be a positive number';
         return newErrors;
     };
 
@@ -34,17 +41,23 @@ const AccountForm = () => {
             return;
         }
 
-        // Save to local storage
+        // Save to local storage or API
         const existingAccounts = JSON.parse(localStorage.getItem('accounts')) || [];
         existingAccounts.push(account);
         localStorage.setItem('accounts', JSON.stringify(existingAccounts));
 
         // Reset form
         setAccount({
+            accountID: '',
+            customerID: '',
             accountType: 'Savings',
             balance: '',
             openDate: '',
+            status: 'Active',
+            interestRate: '',
+            branchID: '',
             currency: 'USD',
+            overdraftLimit: '',
         });
         setErrors({});
         alert('Account created successfully!');
@@ -54,6 +67,34 @@ const AccountForm = () => {
         <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
             <h2 className="text-3xl font-bold mb-6 text-center">Create Account</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Account ID */}
+                <div>
+                    <label htmlFor="accountID" className="block text-sm font-medium">Account ID</label>
+                    <input
+                        type="text"
+                        id="accountID"
+                        name="accountID"
+                        placeholder="Enter Account ID"
+                        value={account.accountID}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                </div>
+
+                {/* Customer ID */}
+                <div>
+                    <label htmlFor="customerID" className="block text-sm font-medium">Customer ID</label>
+                    <input
+                        type="text"
+                        id="customerID"
+                        name="customerID"
+                        placeholder="Enter Customer ID"
+                        value={account.customerID}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                </div>
+
                 {/* Account Type */}
                 <div>
                     <label htmlFor="accountType" className="block text-sm font-medium">Account Type</label>
@@ -99,6 +140,50 @@ const AccountForm = () => {
                     {errors.openDate && <p className="text-red-500 text-sm mt-2">{errors.openDate}</p>}
                 </div>
 
+                {/* Status */}
+                <div>
+                    <label htmlFor="status" className="block text-sm font-medium">Status</label>
+                    <select
+                        id="status"
+                        name="status"
+                        value={account.status}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    >
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+
+                {/* Interest Rate */}
+                <div>
+                    <label htmlFor="interestRate" className="block text-sm font-medium">Interest Rate</label>
+                    <input
+                        type="number"
+                        id="interestRate"
+                        name="interestRate"
+                        placeholder="Enter interest rate"
+                        value={account.interestRate}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                    {errors.interestRate && <p className="text-red-500 text-sm mt-2">{errors.interestRate}</p>}
+                </div>
+
+                {/* Branch ID */}
+                <div>
+                    <label htmlFor="branchID" className="block text-sm font-medium">Branch ID</label>
+                    <input
+                        type="text"
+                        id="branchID"
+                        name="branchID"
+                        placeholder="Enter Branch ID"
+                        value={account.branchID}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                </div>
+
                 {/* Currency */}
                 <div>
                     <label htmlFor="currency" className="block text-sm font-medium">Currency</label>
@@ -115,6 +200,20 @@ const AccountForm = () => {
                     </select>
                 </div>
 
+                {/* Overdraft Limit */}
+                <div>
+                    <label htmlFor="overdraftLimit" className="block text-sm font-medium">Overdraft Limit</label>
+                    <input
+                        type="number"
+                        id="overdraftLimit"
+                        name="overdraftLimit"
+                        placeholder="Enter overdraft limit"
+                        value={account.overdraftLimit}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                </div>
+
                 {/* Submit Button */}
                 <div className="mt-6 text-center">
                     <button
@@ -129,4 +228,4 @@ const AccountForm = () => {
     );
 };
 
-export default AccountForm;
+export default Account;

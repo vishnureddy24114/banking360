@@ -1,13 +1,13 @@
 // src/components/ScheduledPaymentForm.js
 import React, { useState } from 'react';
 
-const ScheduledPaymentForm = () => {
+const ScheduledPayment = () => {
     const [payment, setPayment] = useState({
         accountId: '',
         amount: '',
         paymentDate: '',
         description: '',
-        status: 'Pending',
+        status: '',
     });
 
     const [errors, setErrors] = useState({});
@@ -49,7 +49,7 @@ const ScheduledPaymentForm = () => {
             amount: '',
             paymentDate: '',
             description: '',
-            status: 'Pending',
+            status: '',
         });
         setErrors({});
         alert('Scheduled payment created successfully!');
@@ -62,7 +62,7 @@ const ScheduledPaymentForm = () => {
             amount: '',
             paymentDate: '',
             description: '',
-            status: 'Pending',
+            status: '',
         });
         setErrors({});
     };
@@ -72,7 +72,7 @@ const ScheduledPaymentForm = () => {
             <h2 className="text-3xl font-bold mb-6 text-center">Schedule Payment</h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Account ID */}
+                
                 <div className="space-y-2">
                     <label htmlFor="accountId" className="block text-sm font-medium text-gray-700">Account ID</label>
                     <input
@@ -87,7 +87,7 @@ const ScheduledPaymentForm = () => {
                     {errors.accountId && <p className="text-red-500 text-sm">{errors.accountId}</p>}
                 </div>
 
-                {/* Amount */}
+                
                 <div className="space-y-2">
                     <label htmlFor="amount" className="block text-sm font-medium text-gray-700">Amount</label>
                     <input
@@ -102,7 +102,7 @@ const ScheduledPaymentForm = () => {
                     {errors.amount && <p className="text-red-500 text-sm">{errors.amount}</p>}
                 </div>
 
-                {/* Payment Date */}
+                
                 <div className="space-y-2">
                     <label htmlFor="paymentDate" className="block text-sm font-medium text-gray-700">Payment Date</label>
                     <input
@@ -116,7 +116,7 @@ const ScheduledPaymentForm = () => {
                     {errors.paymentDate && <p className="text-red-500 text-sm">{errors.paymentDate}</p>}
                 </div>
 
-                {/* Description (Optional) */}
+                
                 <div className="space-y-2">
                     <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description (Optional)</label>
                     <textarea
@@ -129,7 +129,7 @@ const ScheduledPaymentForm = () => {
                     ></textarea>
                 </div>
 
-                {/* Status Dropdown */}
+                
                 <div className="space-y-2">
                     <label htmlFor="status" className="block text-sm font-medium text-gray-700">Status</label>
                     <select
@@ -139,13 +139,14 @@ const ScheduledPaymentForm = () => {
                         onChange={handleChange}
                         className="block w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"
                     >
+                        <option value="">Status</option>
                         <option value="Pending">Pending</option>
                         <option value="Completed">Completed</option>
                         <option value="Failed">Failed</option>
                     </select>
                 </div>
 
-                {/* Submit and Reset Buttons */}
+                
                 <div className="mt-6 flex justify-between">
                     <button
                         type="submit"
@@ -166,4 +167,4 @@ const ScheduledPaymentForm = () => {
     );
 };
 
-export default ScheduledPaymentForm;
+export default ScheduledPayment;
