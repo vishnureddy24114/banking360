@@ -54,7 +54,7 @@ const Loan = () => {
             interestRate: '',
             startDate: '',
             endDate: '',
-            status: 'Active',
+            status: '',
             collateral: '',
             repaymentTerm: '',
         });
@@ -78,6 +78,50 @@ const Loan = () => {
                         onChange={handleChange}
                         className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
                     />
+                    {errors.loanID && <p className="text-red-500 text-sm mt-2">{errors.loanID}</p>}
+                </div>
+
+                <div>
+                    <label htmlFor="CustomerId" className="block text-sm font-medium">Customer Id</label>
+                    <input
+                        type="number"
+                        id="CustomerId"
+                        name="CustomerId"
+                        placeholder="Enter CustomerId"
+                        value={loan.customerID}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                    {errors.customerID && <p className="text-red-500 text-sm mt-2">{errors.customerID}</p>}
+                </div>
+
+                <div>
+                    <label htmlFor="LoanTypeId" className="block text-sm font-medium">Loan Type Id</label>
+                    <input
+                        type="number"
+                        id="LoanTypeId"
+                        name="LoanTypeId"
+                        placeholder="Enter LoanTypeId"
+                        value={loan.loanTypeID}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                    {errors.loanTypeID && <p className="text-red-500 text-sm mt-2">{errors.loanTypeID}</p>}
+                </div>
+
+                {/* Interest Rate */}
+                <div>
+                    <label htmlFor="interestRate" className="block text-sm font-medium">Interest Rate</label>
+                    <input
+                        type="number"
+                        id="interestRate"
+                        name="interestRate"
+                        placeholder="Enter interest rate"
+                        value={loan.interestRate}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                    {errors.interestRate && <p className="text-red-500 text-sm mt-2">{errors.interestRate}</p>}
                 </div>
 
                 {/* Amount */}
@@ -94,7 +138,7 @@ const Loan = () => {
                     />
                     {errors.amount && <p className="text-red-500 text-sm mt-2">{errors.amount}</p>}
                 </div>
-
+            
                 {/* Start Date */}
                 <div>
                     <label htmlFor="startDate" className="block text-sm font-medium">Start Date</label>
@@ -107,6 +151,35 @@ const Loan = () => {
                         className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                     {errors.startDate && <p className="text-red-500 text-sm mt-2">{errors.startDate}</p>}
+                </div>
+
+                <div>
+                    <label htmlFor="Repayment Term" className="block text-sm font-medium">Repayment Term</label>
+                    <input
+                        type="date"
+                        id="Repayment Term"
+                        name="Repayment Term"
+                        value={loan.repaymentTerm}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                    {errors.repaymentTerm && <p className="text-red-500 text-sm mt-2">{errors.repaymentTerm}</p>}
+                </div>
+
+                {/* Status */}
+                <div>
+                    <label htmlFor="status" className="block text-sm font-medium">Status</label>
+                    <select
+                        id="status"
+                        name="status"
+                        value={loan.status}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    >
+                        <option value="">Select Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
                 </div>
 
                 {/* Submit Button */}

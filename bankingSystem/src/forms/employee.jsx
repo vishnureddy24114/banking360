@@ -51,7 +51,7 @@ const Employee = () => {
             branchID: '',
             hireDate: '',
             salary: '',
-            status: 'Active',
+            status: '',
         });
         setErrors({});
         alert('Employee created successfully!');
@@ -61,6 +61,20 @@ const Employee = () => {
         <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
             <h2 className="text-3xl font-bold mb-6 text-center">Employee Details</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
+                {/* employee ID */}
+                <div>
+                    <label htmlFor="employeeId" className="block text-sm font-medium">Employee ID</label>
+                    <input
+                        type="number"
+                        id="employeeId"
+                        name="employeeId"
+                        placeholder="Employee ID"
+                        value={employee.employeeID}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                    {errors.employeeID && <p className="text-red-500 text-sm mt-2">{errors.employeeID}</p>}
+                </div>
                 {/* Name */}
                 <div>
                     <label htmlFor="name" className="block text-sm font-medium">Employee Name</label>
@@ -95,7 +109,7 @@ const Employee = () => {
                 <div>
                     <label htmlFor="branchId" className="block text-sm font-medium">Branch ID</label>
                     <input
-                        type="text"
+                        type="number"
                         id="branchId"
                         name="branchId"
                         placeholder="Branch ID"
@@ -134,6 +148,22 @@ const Employee = () => {
                         className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                     {errors.hireDate && <p className="text-red-500 text-sm mt-2">{errors.hireDate}</p>}
+                </div>
+
+                {/* Status */}
+                <div>
+                    <label htmlFor="status" className="block text-sm font-medium">Status</label>
+                    <select
+                        id="status"
+                        name="status"
+                        value={employee.status}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    >
+                        <option value="">Select Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
                 </div>
 
                 {/* Submit Button */}

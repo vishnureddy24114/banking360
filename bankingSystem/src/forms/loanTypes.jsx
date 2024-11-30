@@ -26,23 +26,33 @@ const LoanTypes = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                     <label htmlFor="loanTypeID" className="block text-sm font-medium">Loan Type ID</label>
-                    <input type="text" name="loanTypeID" value={loanType.loanTypeID} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
+                    <input type="text" name="loanTypeID" 
+                    placeholder="Enter Loan Type ID"
+                    value={loanType.loanTypeID} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
                 </div>
                 <div>
                     <label htmlFor="typeName" className="block text-sm font-medium">Type Name</label>
-                    <input type="text" name="typeName" value={loanType.typeName} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
+                    <input type="text" name="typeName"
+                    placeholder="Enter Type Name" 
+                    value={loanType.typeName} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
                 </div>
                 <div>
                     <label htmlFor="description" className="block text-sm font-medium">Description</label>
-                    <textarea name="description" value={loanType.description} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
+                    <textarea name="description" 
+                    placeholder="Enter Description"
+                    value={loanType.description} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
                 </div>
                 <div>
                     <label htmlFor="maximumAmount" className="block text-sm font-medium">Maximum Amount</label>
-                    <input type="number" name="maximumAmount" value={loanType.maximumAmount} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
+                    <input type="number" name="maximumAmount" 
+                    placeholder="Enter Maximum Amount"
+                    value={loanType.maximumAmount} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
                 </div>
                 <div>
                     <label htmlFor="minimumAmount" className="block text-sm font-medium">Minimum Amount</label>
-                    <input type="number" name="minimumAmount" value={loanType.minimumAmount} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
+                    <input type="number" name="minimumAmount"
+                    placeholder="Enter Minimum Amount"
+                    value={loanType.minimumAmount} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
                 </div>
                 <div className="mt-6 text-center">
                     <button type="submit" className="w-full py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:ring-4 focus:ring-blue-200">Submit Loan Type</button>

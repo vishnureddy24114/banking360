@@ -48,7 +48,7 @@ const LoanRepayment = () => {
             repaymentAmount: '',
             repaymentDate: '',
             paymentMethod: 'Bank Transfer',
-            status: 'Completed',
+            status: '',
         });
         setErrors({});
         alert('Loan Repayment created successfully!');
@@ -58,6 +58,36 @@ const LoanRepayment = () => {
         <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
             <h2 className="text-3xl font-bold mb-6 text-center">Loan Repayment</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
+                 {/* Repayment ID */}
+                 <div>
+                    <label htmlFor="repaymentID" className="block text-sm font-medium">Repayment ID</label>
+                    <input
+                        type="text"
+                        id="repaymentID"
+                        name="repaymentID"
+                        placeholder="Enter repaymentID"
+                        value={loanRepayment.repaymentID}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                    {errors.repaymentID && <p className="text-red-500 text-sm mt-2">{errors.repaymentID}</p>}
+                </div>
+
+                {/* Loan ID */}
+                <div>
+                    <label htmlFor="loanID" className="block text-sm font-medium">Loan ID</label>
+                    <input
+                        type="text"
+                        id="loanID"
+                        name="loanID"
+                        placeholder="Enter Loan ID"
+                        value={loanRepayment.loanID}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                    {errors.loanID && <p className="text-red-500 text-sm mt-2">{errors.loanID}</p>}
+                </div>
+               
                 {/* Repayment Amount */}
                 <div>
                     <label htmlFor="repaymentAmount" className="block text-sm font-medium">Repayment Amount</label>
@@ -102,6 +132,23 @@ const LoanRepayment = () => {
                         <option value="Cheque">Cheque</option>
                     </select>
                 </div>
+
+                {/* Status */}
+                <div>
+                    <label htmlFor="status" className="block text-sm font-medium">Status</label>
+                    <select
+                        id="status"
+                        name="status"
+                        value={loanRepayment.status}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    >
+                        <option value="">Select Status</option>
+                        <option value="Active">Completed</option>
+                        <option value="Inactive">InCompleted</option>
+                    </select>
+                </div>
+
 
                 {/* Submit Button */}
                 <div className="mt-6 text-center">

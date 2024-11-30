@@ -50,7 +50,7 @@ const Branch = () => {
             phone: '',
             managerID: '',
             openingDate: '',
-            status: 'Active',
+            status: '',
         });
         setErrors({});
         alert('Branch created successfully!');
@@ -60,6 +60,21 @@ const Branch = () => {
         <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
             <h2 className="text-3xl font-bold mb-6 text-center">Branch Details</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Branch Name */}
+                <div>
+                    <label htmlFor="branchID" className="block text-sm font-medium">Branch ID</label>
+                    <input
+                        type="number"
+                        id="branchID"
+                        name="branchID"
+                        placeholder="Enter Branch ID"
+                        value={branch.branchID}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                    {errors.branchID && <p className="text-red-500 text-sm mt-2">{errors.branchID}</p>}
+                </div>
+
                 {/* Branch Name */}
                 <div>
                     <label htmlFor="branchName" className="block text-sm font-medium">Branch Name</label>
@@ -134,6 +149,23 @@ const Branch = () => {
                     />
                     {errors.openingDate && <p className="text-red-500 text-sm mt-2">{errors.openingDate}</p>}
                 </div>
+
+                {/* Status */}
+                <div>
+                    <label htmlFor="status" className="block text-sm font-medium">Status</label>
+                    <select
+                        id="status"
+                        name="status"
+                        value={branch.status}
+                        onChange={handleChange}
+                        className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+                    >
+                        <option value="">Select Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+
 
                 {/* Submit Button */}
                 <div className="mt-6 text-center">

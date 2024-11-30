@@ -55,7 +55,7 @@ const App = () => {
                     <Route path="/ATMTransactions" element={<ProtectedRoute element={<ATMTransaction />} />} />
                     <Route path="/transactionTypes" element={<ProtectedRoute element={<TransactionTypes />} />} />
                     <Route path="/feedback" element={<ProtectedRoute element={<Feedback />} />} />
-                    <Route path="/scheduled-payment" element={<ProtectedRoute element={<ScheduledPayment />} />} />
+                    <Route path="/scheduledpayment" element={<ProtectedRoute element={<ScheduledPayment />} />} />
                     <Route path="/branch" element={<ProtectedRoute element={<Branch />} />} />
                     <Route path="/employee" element={<ProtectedRoute element={<Employee />} />} />
                     <Route path="/employeeSalary" element={<ProtectedRoute element={<EmployeeSalary />} />} />

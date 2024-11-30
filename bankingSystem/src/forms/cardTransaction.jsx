@@ -29,31 +29,44 @@ const CardTransaction = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                     <label htmlFor="transactionID" className="block text-sm font-medium">Transaction ID</label>
-                    <input type="text" name="transactionID" value={transaction.transactionID} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
+                    <input type="text" name="transactionID" 
+                    placeholder='Enter Transaction ID'
+                    value={transaction.transactionID} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
                 </div>
                 <div>
                     <label htmlFor="cardID" className="block text-sm font-medium">Card ID</label>
-                    <input type="text" name="cardID" value={transaction.cardID} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
+                    <input type="text" name="cardID" 
+                    placeholder='Enter Card ID'
+                    value={transaction.cardID} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
                 </div>
                 <div>
                     <label htmlFor="transactionDate" className="block text-sm font-medium">Transaction Date</label>
-                    <input type="date" name="transactionDate" value={transaction.transactionDate} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
+                    <input type="date" name="transactionDate" 
+                    value={transaction.transactionDate} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
                 </div>
                 <div>
                     <label htmlFor="amount" className="block text-sm font-medium">Amount</label>
-                    <input type="number" name="amount" value={transaction.amount} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
+                    <input type="number" name="amount" 
+                    placeholder='Enter Amount'
+                    value={transaction.amount} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
                 </div>
                 <div>
                     <label htmlFor="merchant" className="block text-sm font-medium">Merchant</label>
-                    <input type="text" name="merchant" value={transaction.merchant} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
+                    <input type="text" name="merchant" 
+                    placeholder='Enter Merchant'
+                    value={transaction.merchant} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
                 </div>
                 <div>
                     <label htmlFor="transactionTypeID" className="block text-sm font-medium">Transaction Type ID</label>
-                    <input type="text" name="transactionTypeID" value={transaction.transactionTypeID} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
+                    <input type="text" name="transactionTypeID" 
+                    placeholder='Enter Transaction Type ID'
+                    value={transaction.transactionTypeID} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
                 </div>
                 <div>
                     <label htmlFor="location" className="block text-sm font-medium">Location</label>
-                    <input type="text" name="location" value={transaction.location} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
+                    <input type="text" name="location" 
+                    placeholder='Enter Location'
+                    value={transaction.location} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500 focus:border-blue-500" />
                 </div>
                 <div>
                     <label htmlFor="currency" className="block text-sm font-medium">Currency</label>

@@ -171,6 +171,16 @@ const Header = () => {
                     )}
                 </li>
 
+                <li>
+                    <Link 
+                        to="/scheduledpayment" 
+                        onClick={(e) => handleLinkClick('/branch')}
+                        className={`text-white ${!isAuthenticated ? 'cursor-not-allowed opacity-50' : ''}`}
+                    >
+                        Schedule Payments
+                    </Link>
+                </li>
+
                 {/* Employee Management Dropdown */}
                 <li className="relative">
                     <button
